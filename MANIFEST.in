@@ -1,6 +1,6 @@
 include README.md
 include LICENSE
 include requirements.txt
-recursive-include tags/locale *
-recursive-include tags/templates *
+recursive-include stock/locale *
+recursive-include stock/templates *
 prune *.pyc

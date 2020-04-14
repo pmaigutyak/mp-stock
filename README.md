@@ -1,11 +1,11 @@
-# MP-tags
+# MP-stock
 
-Django tags app.
+Django stock app.
 
 ### Installation
 
 Install with pip:
 
 ```
-pip install django-mp-tags
+pip install django-mp-stock
 ```

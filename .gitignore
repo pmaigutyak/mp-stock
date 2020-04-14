@@ -13,4 +13,4 @@ storage.db
 *.crt
 media
 dist
-django_mp_tags.egg-info
+django_mp_stock.egg-info
