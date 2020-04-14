@@ -1,0 +1,56 @@
+
+{% extends 'admin/base_site.html' %}
+
+{% load i18n %}
+
+
+{% block content %}
+
+    <style>
+        @media print {
+            #header,
+            .print-btn,
+            .breadcrumbs {
+                display: none !important;
+            }
+
+            #content {
+                background-color: #fff !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
+
+    <button class="btn btn-primary pull-right print-btn" onClick="window.print();">
+        {% trans 'Print' %}
+    </button>
+
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>{% trans 'Code' %}</th>
+                <th>{% trans 'Product name' %}</th>
+                <th>{% trans 'Stock' %}</th>
+                <th>{% trans 'Price' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in products %}
+                <tr>
+                    <td style="width: 20%">
+                        <a href="{{ object.get_absolute_url }}">
+                            {{ object.code }}
+                        </a>
+                    </td>
+                    <td style="width: 40%">
+                        <a href="{{ object.get_absolute_url }}">
+                            {{ object.name }}
+                        </a>
+                    </td>
+                    <td style="width: 20%">{{ object.stock }}</td>
+                    <td style="width: 20%">{{ object.printable_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
