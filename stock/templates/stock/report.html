@@ -1,0 +1,74 @@
+
+{% extends 'base.html' %}
+
+{% load i18n widget_tweaks %}
+
+
+{% block content %}
+
+    {{ block.super }}
+
+    <form class="row hidden-print">
+        <div class="col-sm-6">
+            {{ form.category|add_class:'form-control' }}
+        </div>
+
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-search"></i>
+                {% trans 'Search' %}
+            </button>
+        </div>
+    </form>
+
+    <button class="btn btn-primary pull-right print-btn" onClick="window.print();">
+        {% trans 'Print' %}
+    </button>
+
+    <h3>{{ report_name }}: {% now 'd.m.Y' %}</h3>
+
+    <table class="table table-bordered table-stripped">
+        <thead>
+            <tr>
+                <th class="text-center">№</th>
+                <th class="text-center">{% trans 'Bar code' %}</th>
+                <th class="text-center">{% trans 'Product name' %}</th>
+                <th class="text-center">{% trans 'Quantity' %}</th>
+                <th class="text-center">{% trans 'Price' %}</th>
+                <th class="text-center">{% trans 'Sum' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <a href="{{ object.get_absolute_url }}">
+                            {{ object.bar_code|default:'' }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ object.get_absolute_url }}">
+                            {{ object.name }}
+                        </a>
+                    </td>
+                    <td class="text-center">{{ object.stock }}</td>
+                    <td class="text-center">
+                        {{ object.price }}
+                    </td>
+                    <td class="text-right">
+                        {{ object.subtotal }}
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" class="text-right">
+                    {% trans 'Total' %}:
+                </td>
+                <td class="text-center">{{ totals.qty }}</td>
+                <td></td>
+                <td class="text-right">{{ totals.grand_total }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

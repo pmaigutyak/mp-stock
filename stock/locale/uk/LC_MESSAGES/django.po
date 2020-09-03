@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 00:53+0300\n"
+"POT-Creation-Date: 2020-08-23 09:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,38 +21,69 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: models.py:8 templates/stock/min-stock-report.html:33
+#: stock/forms.py:11
+msgid "Choose category"
+msgstr "Виберіть категорію"
+
+#: stock/models.py:8
 msgid "Stock"
 msgstr "Склад"
 
-#: models.py:10
+#: stock/models.py:10
 msgid "Minimum stock"
 msgstr "Мінімальна кількість"
 
-#: models.py:24
+#: stock/models.py:24
 msgid "Not enough stock items"
 msgstr "Недостатньо елементів на складі"
 
-#: models.py:32
+#: stock/models.py:32
 msgid "Value should be integer"
 msgstr "Значення повинно бути цілим числом"
 
-#: models.py:35
+#: stock/models.py:35
 msgid "Value less then 1"
 msgstr "Значення менше 1"
 
-#: templates/stock/min-stock-report.html:25
+#: stock/templates/stock/report.html:19
+msgid "Search"
+msgstr "Пошук"
+
+#: stock/templates/stock/report.html:25
 msgid "Print"
 msgstr "Друкувати"
 
-#: templates/stock/min-stock-report.html:31
-msgid "Code"
-msgstr "Код"
+#: stock/templates/stock/report.html:34
+msgid "Bar code"
+msgstr ""
 
-#: templates/stock/min-stock-report.html:32
+#: stock/templates/stock/report.html:35
 msgid "Product name"
 msgstr "Назва товару"
 
-#: templates/stock/min-stock-report.html:34
+#: stock/templates/stock/report.html:36
+msgid "Quantity"
+msgstr ""
+
+#: stock/templates/stock/report.html:37
 msgid "Price"
 msgstr "Ціна"
+
+#: stock/templates/stock/report.html:38
+msgid "Sum"
+msgstr ""
+
+#: stock/templates/stock/report.html:66
+msgid "Total"
+msgstr ""
+
+#: stock/views.py:16
+msgid "Products in stock"
+msgstr "Залишок товарів на складі"
+
+#: stock/views.py:25
+msgid "Min stock report"
+msgstr "Товари що закінчуюються"
+
+#~ msgid "Code"
+#~ msgstr "Код"
