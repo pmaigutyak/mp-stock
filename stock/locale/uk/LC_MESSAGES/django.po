@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 09:45+0300\n"
+"POT-Creation-Date: 2020-10-31 12:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,29 +21,57 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
+#: stock/constants.py:7
+msgid "pcs."
+msgstr "шт."
+
+#: stock/constants.py:8
+msgid "l"
+msgstr "л"
+
+#: stock/constants.py:9
+msgid "ml"
+msgstr "мл"
+
+#: stock/constants.py:10
+msgid "g"
+msgstr "г"
+
+#: stock/constants.py:11
+msgid "kg"
+msgstr "кг"
+
+#: stock/constants.py:12
+msgid "pgs"
+msgstr "уп."
+
 #: stock/forms.py:11
 msgid "Choose category"
 msgstr "Виберіть категорію"
 
-#: stock/models.py:8
+#: stock/models.py:10
 msgid "Stock"
 msgstr "Склад"
 
-#: stock/models.py:10
+#: stock/models.py:12
 msgid "Minimum stock"
 msgstr "Мінімальна кількість"
 
-#: stock/models.py:24
+#: stock/models.py:26
 msgid "Not enough stock items"
 msgstr "Недостатньо елементів на складі"
 
-#: stock/models.py:32
+#: stock/models.py:34
 msgid "Value should be integer"
 msgstr "Значення повинно бути цілим числом"
 
-#: stock/models.py:35
+#: stock/models.py:37
 msgid "Value less then 1"
 msgstr "Значення менше 1"
+
+#: stock/models.py:53
+msgid "Unit type"
+msgstr "Од. виміру"
 
 #: stock/templates/stock/report.html:19
 msgid "Search"

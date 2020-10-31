@@ -2,6 +2,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from stock import constants
+
 
 class Stock(models.Model):
 
@@ -40,6 +42,21 @@ class Stock(models.Model):
     @property
     def has_stock(self):
         return self.stock > 0
+
+    class Meta:
+        abstract = True
+
+
+class UnitType(models.Model):
+
+    unit_type = models.CharField(
+        _('Unit type'),
+        max_length=100,
+        choices=constants.UNIT_TYPES,
+        default=constants.UNIT_TYPE_PCS)
+
+    def format_qty(self, qty):
+        return '{} {}'.format(qty, self.get_unit_type_display())
 
     class Meta:
         abstract = True
