@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-31 12:27+0200\n"
+"POT-Creation-Date: 2021-01-08 13:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,93 +20,77 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: stock/constants.py:7
-msgid "pcs."
-msgstr "шт."
-
-#: stock/constants.py:8
-msgid "l"
-msgstr "л"
-
-#: stock/constants.py:9
-msgid "ml"
-msgstr "мл"
-
-#: stock/constants.py:10
-msgid "g"
-msgstr "г"
-
-#: stock/constants.py:11
-msgid "kg"
-msgstr "кг"
-
-#: stock/constants.py:12
-msgid "pgs"
-msgstr "уп."
-
-#: stock/forms.py:11
-msgid "Choose category"
-msgstr "Выберите категорию"
-
-#: stock/models.py:10
+#: stock/models.py:8
 msgid "Stock"
 msgstr "Склад"
 
-#: stock/models.py:12
+#: stock/models.py:10
 msgid "Minimum stock"
 msgstr "Минимальное количество"
 
-#: stock/models.py:26
+#: stock/models.py:28
 msgid "Not enough stock items"
 msgstr "Недостаточно елементов на складе"
 
-#: stock/models.py:34
+#: stock/models.py:36
 msgid "Value should be integer"
 msgstr "Значение должно быть целым числом"
 
-#: stock/models.py:37
+#: stock/models.py:39
 msgid "Value less then 1"
 msgstr "Значение меньше 1"
 
-#: stock/models.py:53
-msgid "Unit type"
-msgstr "Ед. измерения"
+#: stock/templates/stock/report.html:15
+msgid "Select all"
+msgstr "Выбрать все"
 
-#: stock/templates/stock/report.html:19
+#: stock/templates/stock/report.html:18
+msgid "Cancel all"
+msgstr "Отменить все"
+
+#: stock/templates/stock/report.html:27
 msgid "Search"
 msgstr "Поиск"
 
-#: stock/templates/stock/report.html:25
+#: stock/templates/stock/report.html:33
 msgid "Print"
 msgstr "Печать"
 
-#: stock/templates/stock/report.html:34
+#: stock/templates/stock/report.html:42
 msgid "Bar code"
 msgstr "Штрих код"
 
-#: stock/templates/stock/report.html:35
+#: stock/templates/stock/report.html:43
 msgid "Product name"
 msgstr "Название товара"
 
-#: stock/templates/stock/report.html:36
+#: stock/templates/stock/report.html:44
 msgid "Quantity"
 msgstr "Количество"
 
-#: stock/templates/stock/report.html:37
+#: stock/templates/stock/report.html:45
 msgid "Price"
 msgstr "Цена"
 
-#: stock/templates/stock/report.html:38
+#: stock/templates/stock/report.html:46
 msgid "Sum"
 msgstr "Сумма"
 
-#: stock/templates/stock/report.html:66
+#: stock/templates/stock/report.html:47
+msgid "Code"
+msgstr "Код"
+
+#: stock/templates/stock/report.html:78
 msgid "Total"
 msgstr "Сумма"
 
+#: stock/templates/stock/report.html:97
+msgid "Choose categories"
+msgstr "Выберите категории"
+
 #: stock/views.py:16
 msgid "Products in stock"
-msgstr "Товары на складе"
+msgstr "Остаток на складе"
 
 #: stock/views.py:25
 msgid "Min stock report"

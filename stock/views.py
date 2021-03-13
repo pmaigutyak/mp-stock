@@ -30,13 +30,18 @@ def _get_report(request, queryset, report_name):
 
     form = StockReportForm(request.GET or None)
 
-    category = None
+    ids = None
+    categories = None
 
     if form.is_valid():
-        category = form.cleaned_data['category']
+        ids = form.cleaned_data['ids']
+        categories = form.cleaned_data['categories']
 
-    if category is not None:
-        queryset = queryset.filter(category=category)
+    if categories:
+        queryset = queryset.filter(category__in=categories)
+
+    if ids:
+        queryset = queryset.filter(id__in=ids.split(','))
 
     return render(request, 'stock/report.html', {
         'report_name': report_name,

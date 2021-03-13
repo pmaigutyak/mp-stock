@@ -7,7 +7,8 @@ from categories.models import Category
 
 class StockReportForm(forms.Form):
 
-    category = forms.ModelChoiceField(
-        empty_label=_('Choose category'),
+    categories = forms.ModelMultipleChoiceField(
         required=False,
         queryset=Category.objects.all())
+
+    ids = forms.CharField(required=False)

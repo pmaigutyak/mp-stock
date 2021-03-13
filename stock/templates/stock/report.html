@@ -8,12 +8,20 @@
 
     {{ block.super }}
 
-    <form class="row hidden-print">
-        <div class="col-sm-6">
-            {{ form.category|add_class:'form-control' }}
+    <form class="hidden-print">
+        <div>
+            {{ form.categories|add_class:'form-control' }}
+            <a href="javascript:void(0);" id="{{ form.categories.auto_id }}-select-all">
+                {% trans 'Select all' %}
+            </a> /
+            <a href="javascript:void(0);" id="{{ form.categories.auto_id }}-remove-all">
+                {% trans 'Cancel all' %}
+            </a>
         </div>
 
-        <div class="col-sm-6">
+        <hr />
+
+        <div>
             <button type="submit" class="btn btn-success">
                 <i class="fa fa-search"></i>
                 {% trans 'Search' %}
@@ -36,6 +44,7 @@
                 <th class="text-center">{% trans 'Quantity' %}</th>
                 <th class="text-center">{% trans 'Price' %}</th>
                 <th class="text-center">{% trans 'Sum' %}</th>
+                <th class="text-center">{% trans 'Code' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -59,6 +68,9 @@
                     <td class="text-right">
                         {{ object.subtotal }}
                     </td>
+                    <td>
+                        {{ object.code }}
+                    </td>
                 </tr>
             {% endfor %}
             <tr>
@@ -71,4 +83,34 @@
             </tr>
         </tbody>
     </table>
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+
+    <script>
+        (function ($) {
+            var $categories = $('#{{ form.categories.auto_id }}');
+
+            $categories.chosen({
+                placeholder_text_multiple: '{% trans 'Choose categories' %}'
+            });
+
+            $('#{{ form.categories.auto_id }}-select-all').click(function () {
+                triggerOptions(true);
+            });
+
+            $('#{{ form.categories.auto_id }}-remove-all').click(function () {
+                triggerOptions(false);
+            });
+
+            function triggerOptions(areSelected) {
+                $categories.find('option').each(function () {
+                    $(this).prop('selected', areSelected);
+                });
+                $categories.trigger('chosen:updated');
+            }
+        })(jQuery);
+    </script>
 {% endblock %}
