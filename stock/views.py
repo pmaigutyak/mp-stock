@@ -4,8 +4,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.views.decorators import staff_member_required
 
 from stock.forms import StockReportForm
-from apps.site.views import render
 from apps.products.models import Product
+
+try:
+    from apps.stock import render
+except ImportError:
+    from basement.admin import render
 
 
 @staff_member_required
