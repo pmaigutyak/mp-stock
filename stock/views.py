@@ -1,18 +1,12 @@
 
 from django.db.models import F
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.admin.views.decorators import staff_member_required
 
+from cap.decorators import admin_render_view
 from stock.forms import StockReportForm
 from apps.products.models import Product
 
-try:
-    from apps.stock import render
-except ImportError:
-    from basement.admin import render
 
-
-@staff_member_required
 def get_stock_report(request):
     return _get_report(
         request,
@@ -21,7 +15,6 @@ def get_stock_report(request):
     )
 
 
-@staff_member_required
 def get_min_stock_report(request):
     return _get_report(
         request,
@@ -30,6 +23,7 @@ def get_min_stock_report(request):
     )
 
 
+@admin_render_view('stock/report.html')
 def _get_report(request, queryset, report_name):
 
     form = StockReportForm(request.GET or None)
@@ -47,7 +41,7 @@ def _get_report(request, queryset, report_name):
     if ids:
         queryset = queryset.filter(id__in=ids.split(','))
 
-    return render(request, 'stock/report.html', {
+    return {
         'report_name': report_name,
         'products': queryset,
         'form': form,
@@ -55,4 +49,4 @@ def _get_report(request, queryset, report_name):
             'qty': sum([p.stock for p in queryset]),
             'grand_total': sum([p.subtotal for p in queryset])
         }
-    })
+    }
