@@ -1,5 +1,6 @@
 
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 from stock import views
 
@@ -16,3 +17,8 @@ urlpatterns = [
          name='min-stock-report')
 
 ]
+
+
+app_urls = i18n_patterns(
+    path('stock/', include((urlpatterns, app_name)))
+)
