@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from cap.decorators import admin_render_view
 from stock.forms import StockReportForm
-from apps.products.models import Product
+from products.models import Product
 
 
 def get_stock_report(request):

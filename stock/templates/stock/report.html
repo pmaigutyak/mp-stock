@@ -86,16 +86,18 @@
 {% endblock %}
 
 
+{% block css %}
+    {{ block.super }}
+    {{ form.media.css }}
+{% endblock %}
+
 {% block js %}
     {{ block.super }}
+    {{ form.media.js }}
 
     <script>
         (function ($) {
             var $categories = $('#{{ form.categories.auto_id }}');
-
-            $categories.select2({
-                placeholder_text_multiple: '{% trans 'Choose categories' %}'
-            });
 
             $('#{{ form.categories.auto_id }}-select-all').click(function () {
                 triggerOptions(true);
@@ -109,7 +111,7 @@
                 $categories.find('option').each(function () {
                     $(this).prop('selected', areSelected);
                 });
-                $categories.trigger('chosen:updated');
+                $categories.trigger('change.select2');
             }
         })(jQuery);
     </script>
