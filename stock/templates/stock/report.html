@@ -1,7 +1,7 @@
 
 {% extends 'accounting.html' %}
 
-{% load i18n widget_tweaks %}
+{% load i18n widget_tweaks stock %}
 
 
 {% block content %}
@@ -49,6 +49,13 @@
         </thead>
         <tbody>
             {% for object in products %}
+                {% if products|is_category_shown:forloop.counter0 %}
+                    <tr>
+                        <td colspan="7">
+                            {{ object.category.name }}
+                        </td>
+                    </tr>
+                {% endif %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>

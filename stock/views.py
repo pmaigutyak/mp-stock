@@ -41,6 +41,8 @@ def _get_report(request, queryset, report_name):
     if ids:
         queryset = queryset.filter(id__in=ids.split(','))
 
+    queryset = queryset.select_related('category').order_by('category', 'name')
+
     return {
         'report_name': report_name,
         'products': queryset,
